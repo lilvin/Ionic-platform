@@ -1,0 +1,24 @@
+<ion-view view-title="Recipes">
+  <ion-content>
+    <!--<ion-list>
+      <ion-item ng-repeat="Recipe  in Recipes" href="#/app/Recipes/{{Recipe .id}}">
+        {{Recipe.title}}
+      </ion-item>
+    </ion-list>-->
+  <!--   <div class = "card">
+   <div class = "item item-avatar">
+      <img src = "my-image.png">
+      <h2>Card Name</h2>
+   </div> -->
+
+    <ion-item class="item-thumbnail-left" ng-repeat="item in recipes | orderBy:'name' ">  
+        <img  ng-src="img/{{item.image}}"  ng-click="showProductInfo(item)" >
+        <h2  ng-click="showProductInfo(item)" >Name: {{item.name}}</h2>
+        <p   ng-click="showProductInfo(item)">Price: {{item.price}}</p>
+        <p   ng-click="showProductInfo(item)">Description: {{item.description}}</p>
+        <p style="position:absolute;right:10px;">
+        <a  ng-click="addToCart(item)" class="button button-assertive button-clear  icon ion-android-cart"></a> 
+        </p> 
+    </ion-item>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,27 @@
+<ion-view view-title="{{name}}">
+  <ion-content>
+      <div class="card">
+                <div href="#" class="item item-text-wrap" style="padding:0px">
+                  <img src="img/{{image}}" style="width:100%">
+
+                  <button class="button button-light" style="position: absolute; bottom:10px; right:5px" ng-click="addToCart(item.id, item.quantity)">
+                    <i class="ion-plus"></i> Add to cart
+                  </button>
+
+                </div>
+                <a href="#" class="item item-icon-left">
+                  <i class="icon ion-information-circled"></i>
+                  <b>{{name}}</b><br>
+                </a>
+                <a href="#" class="item item-icon-left">
+                  <i class="icon ion-cash"></i>
+                  <b>{{price}}</b>
+                </a>
+                <h2 style="color: #C70039">COOKING DIRECTION</h2>
+                <textarea  style="width: 100%;">{{cooking_steps}}</textarea>
+
+                
+              </div>
+
+  </ion-content>
+</ion-view>
