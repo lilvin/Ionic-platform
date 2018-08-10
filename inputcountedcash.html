@@ -1,0 +1,55 @@
+<ion-modal-view>
+	<ion-header-bar class="bar-pesa">
+		<h1 class="title text-center" style="color:#ffffff;">Input Counted Cash</h1>
+		<div class="buttons">
+			<button class="button" style="background-color: #004B91;" ng-click="close_inputcountedcash()"><i class="icon ion-close-circled" style="color:#D19B07;"></i>
+			</button>
+		</div>
+	</ion-header-bar>
+	<ion-content style="color: #000;">
+		<div class="card" style="border-radius: 0px;">
+			<form class="list" name="CollectionEntryForm">
+				<div>
+					<!-- <label class="item item-input text-center">
+						<div class="input-label" style="color: #004B91;">
+							<b>TRANSACTION ID: &nbsp;&nbsp;&nbsp;</b> {{CollectionTransaction.trxId}}
+						</div>
+					</label> -->
+					<label class="item item-input text-center">
+						<div class="input-label" style="color: #004B91;">
+							<b>AMOUNT: &nbsp;&nbsp;&nbsp;</b> {{CollectionTransaction.currencyCode.currencyCode}}. {{CollectionTransaction.trxValue | number: '2'}} 
+						</div>
+					</label>
+				</div>
+			</form>	
+		</div>
+		<div class="row header" style="text-align: center;">
+			<div class="col col-40">Denomination</div>
+			<div class="col col-20">Units</div>
+			<div class="col col-40">Value</div>
+		</div>
+		<div class="row" ng-repeat="CurrencyDenomination in CollectionTransaction.Currency.cmsCurrencyDenominationList track by $index" style="text-align: center;">
+			<div class="col col-40">{{CurrencyDenomination.denomination}}</div>
+			<div class="col col-20">
+				<input type="number" ng-model="CurrencyDenomination.units" ng-value="(CurrencyDenomination.value ? ((CurrencyDenomination.value / CurrencyDenomination.denomination) | number:'0') : 0)" class="" placeholder="0" numbers-Only>
+			</div>
+			<div class="col col-40">
+				<input type="number" ng-model="CurrencyDenomination.value" ng-value="CurrencyDenomination.units ? ((CurrencyDenomination.denomination * CurrencyDenomination.units) | number:'2') : 0.00" class="" placeholder="0.00" money-mask readonly="" style="font-weight: 600;"/>
+			</br>                    
+		</div>
+	</div>
+	<div class="row">
+		<div class="col col-40"><b>Totals</b></div>
+		<div class="col col-20">{{getInputTotals(CollectionTransaction.Currency.cmsCurrencyDenominationList, 'units') | number:'0'}}</div>
+		<div class="col col-40">{{getInputTotals(CollectionTransaction.Currency.cmsCurrencyDenominationList, 'value') | number:'2'}}</div>
+	</div>
+
+	
+</ion-content>
+<div class="bar bar-footer">
+		<label class="padding">
+			<button class="button bar-golden button-block button-float1" ng-click="submitTally()" style=" margin-top: 1px; color: #ffffff; border-radius: 0;"><b>SUBMIT</b>
+			</button>
+		</label>
+</div>
+</ion-modal-view>

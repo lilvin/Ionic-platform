@@ -1,0 +1,58 @@
+<ion-view cache-view="false" can-swipe-back="false" hide-nav-bar="true" enable-menu-with-back-views="false"  style="background-color: #E8E8E8">
+  <ion-header-bar class="bar-pesa">
+    <button class="button button-icon button-clear ion-navicon" style="background-color: #004B91; color:#FFFFFF;" menu-toggle="left"></button>
+    <h1 class="title text-center" style="color:#FFFFFF;">CASH 2 BANK</h1>
+    <!-- <button class="button button-icon button-clear ion-android-more-vertical" style="background-color: #004B91; color:#FFFFFF;" ng-click="openPopover($event)"></button> -->
+    <button class="button button-icon button-clear ion-refresh" style="background-color: #004B91; color:#FFFFFF;"  ng-click="refresh()"></button>
+  </ion-header-bar>
+
+  <ion-content class="padding">
+    <div class="card text-center">
+      <div class="item item-text-wrap" style="color:#004B91;">
+        <i class="ion-information-circled"></i><b> Initiate Cash Collection</b>
+      </div>
+    </div>
+    <form class="list" name="CashCollectionForm" novalidate>
+      <div>
+       <label class="item item-input item-select">
+        <div class="input-label">
+          <b>Outlet:</b>
+        </div>
+        <select data-ng-options="CustomerOutlet as CustomerOutlet.outletName for CustomerOutlet in CustomerOutlets" ng-model="CashCollection.CustomerOutlet" class="form-control" ng-change="CustomerOutletChange()" required="">
+          <option value="" ng-if="!CashCollection.CustomerOutlet">Select Outlet</option>
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 15px;"></div>
+      <label><b>Customer Name:</b></label>
+      <label class="item item-input" style="border-style: solid; border-width: 0px 0px 1px 0px;  border-color: #D19B07">
+        <span class="ion ion-person" style="font-size: 21px;"></span> &nbsp; &nbsp; &nbsp;
+        <input type="text" name="customername" id="customername" ng-model="CashCollection.CustomerOutlet.customer.customerName" placeholder="Customer Name" required readonly="">
+      </label>
+    </br>
+    <label><b>Cash Collection Point:</b></label>
+    <label class="item item-input" style="border-style: solid; border-width: 0px 0px 1px 0px;  border-color: #D19B07">
+      <span class="ion ion-location" style="font-size: 23px;"></span> &nbsp; &nbsp; &nbsp;
+      <input type="text" name="outlet" id="outlet" ng-model="CashCollection.CustomerOutlet.physicalAddress" placeholder="Customer Outlet Locaiton" required="" readonly="">
+    </label>
+  </br>
+  <label><b>Preferred Collection Date and Time:</b></label>
+   <div class="item item-icon-left" ion-datetime-picker am-pm ng-model="CashCollection.prefCollectionTime.date">
+    <i class="icon ion-clock" style="font-size: 17px;"></i>
+    <strong>{{CashCollection.prefCollectionTime.date | date: "yyyy-MM-dd h:mm a"}}</strong>
+  </div>
+</div>
+<!-- <button class="col" type="submit" ng-click="submitCollectionRequest(CashCollectionForm)"><i class="icon ion-arrow-swap"></i> Request </button> -->
+</form>
+
+</ion-content>
+<div class="padding" style="bottom: 10px;">
+ <div class="bar bar-footer text-center row" >
+  <button class="button col-50"  ng-click="add_cash()" style=" background-color: #004B91;">
+    <i class="icon ion-plus" style="color: #ffffff;">&nbsp;ADD ENTRY</i></button>
+    <button class="col"  ng-click="view_entries()" style=" background-color: #D19B07; border-width: 0px; border-radius: 3.5px;">
+      <i class="icon" style="color: #ffffff;">&nbsp;MY ENTRIES</i></button>
+    </div>
+  </div>
+</ion-view>
+
+

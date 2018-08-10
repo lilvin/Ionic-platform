@@ -1,0 +1,38 @@
+<ion-view can-swipe-back="false" hide-nav-bar="true" enable-menu-with-back-views="false"  style="background-color: #E8E8E8">
+  <ion-header-bar class="bar-pesa">
+    <button class="button button-icon button-clear ion-navicon" style="background-color: #004B91; color:#FFFFFF;" menu-toggle="left"></button>
+    <h1 class="title text-center" style="color:#FFFFFF;">CASH 2 BANK</h1>
+    <!-- <button class="button button-icon button-clear ion-android-more-vertical" style="background-color: #004B91; color:#FFFFFF;" ng-click="openPopover($event)"></button> -->
+    <button class="button button-icon button-clear ion-refresh" style="background-color: #004B91; color:#FFFFFF;"  ng-click="refresh()"></button>
+  </ion-header-bar>
+
+  <ion-content class="">
+    <div class="padding">
+    <div class="card text-center">
+      <div class="item item-text-wrap" style="color:#004B91;">
+        <i class="ion-information-circled"></i><b> Select request to input counted cash</b>
+      </div>
+    </div>
+  </div>
+
+    <div class="row header" style="text-align: center;">
+      <div class="col col-40">Customer Name</div>
+      <!-- <div class="col col-20">Request ID</div> -->
+      <div class="col col-40">Requested By</div>
+      <div class="col col-20">Action</div>
+    </div>
+    <div class="row" ng-repeat="CollectionRequest in CollectionRequests track by $index" style="text-align: center;">
+      <div class="col col-40">{{CollectionRequest.customerName+' - '+CollectionRequest.outletName}}</div>
+      <!-- <div class="col col-20">{{CollectionRequest.requestId}}</div> -->
+      <div class="col col-40">{{CollectionRequest.requestedBy}}</div>
+      <div class="col col-20">
+        <button class="btn btn-default btn-xs" ng-click="viewCollectionRequest(CollectionRequest.requestId)"><i class="fa fa-search-plus"></i> View </button>
+      </div>
+    </div>
+<div class="padding">
+      <p ng-show="!CollectionRequests.length" class="padding text-center" style="color: #ff0000">
+        <b>No new requests</b>
+      </p>
+    </div>
+  </ion-content>
+</ion-view>

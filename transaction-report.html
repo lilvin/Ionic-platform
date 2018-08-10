@@ -1,0 +1,30 @@
+<ion-view view-title={{PageParams.title}} style="color: #ffffff;">
+	<ion-nav-bar class="bar-pesa">
+		<ion-nav-buttons side="left">
+			<button class="button button-icon ion-navicon" menu-toggle="left" style="color:#fff;">
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content style="color: #000000;">
+		<div class="row header">
+			<!-- <div class="col">No</div> -->
+			<div class="col col-40">Account Name</div>
+			<div class="col col-20">Transaction ID</div>
+			<div class="col col-20">Amount</div>
+			<div class="col col-20">Action</div>
+		</div>
+		<div class="row" ng-repeat="Transaction in Transactions track by $index">
+			<!-- <div class="col">{{$index + 1}}</div> -->
+			<div class="col col-40">{{Transaction.account.accountName}}</div>
+			<div class="col col-20">{{Transaction.trxRefNumber}}</div>
+			<div class="col col-20">{{Transaction.trxValue | number:'2'}}</div>
+			<div class="col col-20">
+                <button class="btn btn-default btn-xs" ng-click="viewTransaction(Transaction)"> View </button>
+            </div>
+		</div>
+	</br>
+		<p ng-show="!Transactions.length" class="padding text-center" style="color: #ff0000">
+      <b>No {{PageParams.title}}</b>
+    </p>
+	</ion-content>
+</ion-view>

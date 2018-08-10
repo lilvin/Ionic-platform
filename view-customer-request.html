@@ -1,0 +1,63 @@
+<ion-modal-view>
+   <ion-header-bar class="bar-pesa">
+    <h1 class="title text-center" style="color:#ffffff;">My Request</h1>
+    <div class="buttons">
+      <button class="button" style="background-color: #004B91;" ng-click="closemyrequests()"><i class="icon ion-close-circled" style="color:#D19B07;"></i></button>
+    </div>
+  </ion-header-bar>
+  <ion-content style="color: #000;">
+		<div class="card padding" style="border-radius: 0px;">
+			<!-- <div style="text-align: center;">
+		<button class="button bar-pesa text-center" ng-click="viewMyRequestTransaction(CollectionRequest.requestId)" style=" margin-top: 1px; color: #ffffff;"><span class="ion ion-eye"></span> &nbsp; VIEW TRANSACTION(S)</button>
+	</div> -->
+			<ion-list>
+				<ion-item><b>Request ID: </b>
+					<div>{{CollectionRequest.requestId}}</div>
+				</ion-item>
+				<ion-item><b>Request Time: </b>
+					<div>{{CollectionRequest.requestTime | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+				</ion-item>
+				<ion-item><b>Request Status: </b>
+					<div>{{CollectionRequest.requestStatus}}</div>
+				</ion-item>
+				<ion-item><b>Pref. Collection Time: </b>
+					<div>{{CollectionRequest.prefCollectionTime | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+				</ion-item>
+				<ion-item><b>Customer Name: </b>
+					<div>{{CollectionRequest.outlet.customer.customerName}}</div>
+				</ion-item>
+				<ion-item><b>Collection Point: </b>
+					<div>{{CollectionRequest.outlet.outletName+' - '+CollectionRequest.outlet.physicalAddress}}</div>
+				</ion-item>
+				<ion-item><b>Base Currency: </b>
+					<div>{{CollectionRequest.currencyCode}}</div>
+				</ion-item>
+				<!-- <ion-item><b>CIT Agent: </b>
+					<div>{{CollectionRequest.citAgent.citAgentName}}</div>
+				</ion-item> -->
+				<!-- <ion-item><b>No. of vehicles: </b>
+					<div>{{CollectionRequest.vehicleQty}}</div>
+				</ion-item> -->
+				<ion-item><b>Requested By: </b>
+					<div>{{CollectionRequest.requestByObject.fullName}}</div>
+				</ion-item>
+				<!-- <ion-item><b>Total Value: </b>
+					<div>{{CollectionRequest.totalValue}}</div>
+				</ion-item> -->
+			</ion-list>
+			
+		</div>
+	</ion-content>
+	<div class="padding" style="bottom: 10px;">
+		<div class="bar bar-footer text-center row" >
+			<button class="col"  ng-if="CollectionRequest.requestByObject.fullName && requestStage < 6 && CollectionRequest.requestStatus !== 'Cancelled'" ng-click="cancelRequest()" style=" background-color: #FF5733; border-width: 0px; border-radius: 3.5px;">
+				<i class="icon ion-close-round" style="color: #ffffff;">&nbsp;CANCEL REQUEST</i>
+			</button>
+			<button class="button col-50"  ng-if="requestStage === 5" ng-click="processRequest()" style=" background-color: #2ECC71;">
+				<i class="icon ion-checkmark-round" style="color: #ffffff;">&nbsp;CONFIRM REQUEST</i>
+			</button>
+		</div>
+			</div>
+</ion-modal-view>
+
+

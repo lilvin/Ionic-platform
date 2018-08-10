@@ -1,0 +1,53 @@
+<ion-modal-view>
+ <ion-header-bar class="bar-pesa">
+  <h1 class="title text-center" style="color:#ffffff;">Confirm Transaction</h1>
+  <div class="buttons">
+    <button class="button" style="background-color: #004B91;" ng-click="closeconfirmtransaction()"><i class="icon ion-close-circled" style="color:#D19B07;"></i></button>
+  </div>
+</ion-header-bar>
+<ion-content class="padding">
+
+  <form class="list" name="CollectionTransactionConfirmForm">
+    <div>
+
+      <div class="spacer" style="width: 300px; height: 15px;"></div>
+      <div class="input-label">
+        <b>Transaction ID:</b>
+      </div>
+      <label class="item item-input" style="border-style: solid; border-width: 0px 0px 1px 0px;  border-color: #D19B07">
+        <span class="ion ion-cash"></span> &nbsp; &nbsp; &nbsp;
+        <input type="text" ng-value="CollectionTransaction.trxId" readonly="">
+      </label>
+    </br>
+    <div class="input-label">
+      <b>Account Number:</b>
+    </div>
+    <label class="item item-input" style="border-style: solid; border-width: 0px 0px 1px 0px;  border-color: #D19B07">
+      <span class="ion ion-cash"></span> &nbsp; &nbsp; &nbsp;
+      <input type="text" ng-value="'['+CollectionTransaction.currencyCode.currencyCode+'] '+CollectionTransaction.accountNumber" readonly="">
+    </label>
+  </br>
+  <div class="input-label">
+    <b>Transaction Amount:</b>
+  </div>
+  <label class="item item-input" style="border-style: solid; border-width: 0px 0px 1px 0px;  border-color: #D19B07">
+    <span class="ion ion-cash"></span> &nbsp; &nbsp; &nbsp;
+    <input type="text" ng-value="CollectionTransaction.trxValue | number:'2'" readonly="">
+
+  </label>
+</br>
+<div class="input-label">
+  <b>Notes:</b>
+</div>
+<div class="has-feedback">
+  <textarea ng-model="CollectionTransaction.notes" class="form-control" placeholder="Enter reason" style="width: 100%; height: 30%"></textarea>
+</div>
+</br>
+<div style="text-align: center;">
+  <button class="button bar-pesa" ng-click="processRequest(true, CollectionTransaction)" style=" margin-top: 1px; color: #ffffff;"><span class="ion ion-checkmark-circled"></span> &nbsp; Confirm</button>
+</div>
+</div>
+</form>
+
+</ion-content>
+</ion-modal-view>

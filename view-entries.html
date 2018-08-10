@@ -1,0 +1,40 @@
+<ion-modal-view>
+   <ion-header-bar class="bar-pesa">
+    <h1 class="title text-center" style="color:#ffffff;">My Entries</h1>
+    <div class="buttons">
+      <button class="button" style="background-color: #004B91;" ng-click="closeviewentry()"><i class="icon ion-close-circled" style="color:#D19B07;"></i></button>
+    </div>
+  </ion-header-bar>
+  <ion-content class="">
+    
+    <div class="row header" style="text-align: center;">
+      <div class="col col-40">Account Name</div>
+      <div class="col col-20">Currency</div>
+      <div class="col col-20">Amount</div>
+      <div class="col col-20">Action</div>
+    </div>
+    <div class="row" ng-repeat="CashCollectionEntry in CashCollectionEntries track by $index" style="text-align: center;"  on-swipe-left="removeCollectionEntry($index)" on-hold="showentry(CashCollectionEntry)">
+      <div class="col col-40">{{CashCollectionEntry.OutletAccount.accountName}}</div>
+      <div class="col col-20">{{CashCollectionEntry.Currency.currencyCode}}</div>
+      <div class="col col-20">{{CashCollectionEntry.amount | number:'2'}}</div>
+      <div class="col col-20">
+        <div class="btn-group">
+          <button class="btn btn-default btn-xs  pull-left" ng-click="editCollectionEntry($index)"><i class="icon ion-edit"></i></button>
+          <button class="btn btn-default btn-xs pull-right" ng-click="removeCollectionEntry($index)"><i class="icon ion-close-circled"></i></button>
+                                                </div>
+      </div>
+    </div>
+  </br>
+  <div class="spacer" style="width: 300px; height: 15px;"></div>
+ <!--  <div>
+      <p ng-show="!CashCollectionEntries.length" class="padding">
+                    No Entries Added!
+      </p>
+  </div> -->
+  
+    </ion-content>
+    <label class="padding">
+      <!-- <button class="col" type="submit" ng-click="submitCollectionRequest(CashCollectionForm)"><i class="icon ion-arrow-swap"></i> Request </button> -->
+             <button class="button bar-golden button-block button-float1" ng-click="submitCollectionRequest(CashCollectionForm)" style=" margin-top: 1px; color: #ffffff; border-radius: 0;"><i class="icon ion-arrow-swap"></i>&nbsp;&nbsp;<b>SUBMIT REQUEST</b></button>
+        </label>
+</ion-modal-view>

@@ -1,0 +1,30 @@
+<ion-view view-title={{PageParams.title}} style="color: #ffffff;">
+	<ion-nav-bar class="bar-pesa">
+		<ion-nav-buttons side="left">
+			<button class="button button-icon ion-navicon" menu-toggle="left" style="color:#fff;">
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content style="color: #000000;">
+		<div class="row header">
+			<div class="col col-40">Customer Name - Outlet</div>
+			<!-- <div class="col col-20">Request ID</div> -->
+			<div class="col col-40">Total Value</div>
+			<div class="col col-20">Action</div>
+		</div>
+		<div>
+			<p ng-show="!CollectionRequests.length" class="padding text-center" style="color: #ff0000">
+	            <b>No {{PageParams.title}}</b>
+	        </p>
+    	</div>
+		<div class="row" ng-repeat="CollectionRequest in CollectionRequests track by $index">
+			<div class="col col-40">{{CollectionRequest.customerName+' - '+CollectionRequest.outletName}}</div>
+			<!-- <div class="col col-20">{{CollectionRequest.requestId}}</div> -->
+			<div class="col col-40">{{CollectionRequest.totalValue ? (CollectionRequest.totalValue | number:'2') : 'N/A'}}</div>
+			<div class="col col-20">
+                <button class="btn btn-default btn-xs" ng-click="viewCollectionRequest(CollectionRequest.requestId)"> View </button>
+            </div>
+		</div>
+		
+	</ion-content>
+</ion-view>

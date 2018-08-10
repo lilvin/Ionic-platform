@@ -1,0 +1,48 @@
+<ion-modal-view>
+   <ion-header-bar class="bar-pesa">
+    <h1 class="title text-center" style="color:#ffffff;">Input Counted Cash</h1>
+    <div class="buttons">
+      <button class="button" style="background-color: #004B91;" ng-click="closeccentry()"><i class="icon ion-close-circled" style="color:#D19B07;"></i></button>
+    </div>
+  </ion-header-bar>
+  <ion-content style="color: #000;">
+		<div class="card padding" style="border-radius: 0px;">
+			<ion-list>
+				<ion-item><b>Request ID: </b>
+					<div>{{CollectionRequest.requestId}}</div>
+				</ion-item>
+				<ion-item><b>Request Time: </b>
+					<div>{{CollectionRequest.requestTime | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+				</ion-item>
+				<ion-item><b>Pref. Collection Time: </b>
+					<div>{{CollectionRequest.prefCollectionTime | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+				</ion-item>
+				<ion-item><b>Customer Name: </b>
+					<div>{{CollectionRequest.outlet.customer.customerName}}</div>
+				</ion-item>
+				<ion-item><b>Collection Point: </b>
+					<div>{{CollectionRequest.outlet.outletName+' - '+CollectionRequest.outlet.physicalAddress}}</div>
+				</ion-item>
+				<ion-item><b>Base Currency: </b>
+					<div>{{CollectionRequest.currencyCode}}</div>
+				</ion-item>
+				<ion-item><b>CIT Agent: </b>
+					<div>{{CollectionRequest.citAgent.citAgentName}}</div>
+				</ion-item>
+				<ion-item><b>No. of vehicles: </b>
+					<div>{{CollectionRequest.vehicleQty}}</div>
+				</ion-item>
+				<ion-item><b>Requested By: </b>
+					<div>{{CollectionRequest.requestByObject.fullName}}</div>
+				</ion-item>
+				<ion-item><b>Total Value: </b>
+					<div>{{CollectionRequest.totalValue}}</div>
+				</ion-item>
+			</ion-list>
+			
+		</div>
+	</ion-content>
+	<label class="padding">
+       			 <button class="button bar-golden button-block button-float1" ng-click="transaction(CollectionRequest)" style=" margin-top: 1px; color: #ffffff; border-radius: 0;"><b>TRANSACTIONS</b></button>
+      	</label>
+</ion-modal-view>
