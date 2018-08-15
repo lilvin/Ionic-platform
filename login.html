@@ -1,0 +1,35 @@
+<!-- Login form -->
+<ion-view style="background-color: #F0EFF0; text-align: center;" view-title="CASH 2 BANK" >
+  <ion-content class="padding">
+    <div class="card text-center">
+      <div class="item item-text-wrap" style="color:#004B91;">
+        <i class="ion-information-circled"></i><b> Enter your credentials to login</b>
+      </div>
+    </div>
+  
+    <form  name="LoginForm" style="margin-bottom: 10%;" novalidate="">
+      <div class="list list-inset" style="background-color: transparent;">
+        <label class="item item-input" style="border-style: solid; border-width: 0px 0px 1px 0px;  border-color: #D19B07; margin-top: 1.5%; background-color: #F0EFF0">
+            <span class="ion ion-iphone" style="font-size: 23px"></span> &nbsp; &nbsp; &nbsp;
+              <input type="email" id="username" ng-model="data.username" placeholder="EMAIL/USERNAME" required="">
+        </label>
+
+        <label class="item item-input" style="border-style: solid; border-width: 0px 0px 1px 0px;  border-color: #D19B07; margin-top: 1.5%; background-color: #F0EFF0">
+            <span class="ion ion-locked"></span> &nbsp; &nbsp; &nbsp;
+              <input type="password" id="pin" ng-model="data.password" placeholder="PASSWORD" required="">
+        </label>
+      </div>  
+
+      <label>
+        <button class="button bar-golden button-block" ng-click="doLogin(LoginForm)" style=" margin-top: 1px; color: #ffffff; border-radius: 0;"><b>LOGIN</b></button>
+      </label>
+    </form>
+
+    <div class="text-center" >
+      <button class="button button-clear" type="submit" ng-click="forgotpass()" style="color: #004B91; text-decoration: underline;"><b>
+        Forgot Password?
+      </b>
+      </button>
+    </div>
+</ion-content>
+</ion-view>

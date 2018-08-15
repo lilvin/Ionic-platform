@@ -1,0 +1,52 @@
+	<ion-view view-title="Initiate Cash Collection" hide-nav-bar="false" style="color: #fff;">
+		<ion-nav-bar class="bar-pesa">
+			<ion-nav-buttons side="left">
+				<button class="button button-icon ion-navicon" menu-toggle="left" style="color:#fff;">
+				</button>
+			</ion-nav-buttons>
+		</ion-nav-bar>
+		<ion-content class="padding">
+			
+			<div class="" style="color: #000;"> &nbsp; &nbsp;
+				<span class="ion ion-person"> </span> &nbsp; &nbsp; 
+				<b>Select Customer Outlet Name</b>
+			</div>
+
+			<form class="list" ng-submit="initiateCC()">
+				<div class="item item-select" >
+					<select ng-model="data.is_registered" ng-change="registrationChanged(data.is_registered)">
+						<option></option>
+						<option value="yes">Spring Valley Total</option>
+						<option value="no">Total Westlands</option>
+					</select>
+				</div>
+				</br>
+				<label class="item item-input" style="border-style: solid; border-width: 0px 0px 1px 0px;  border-color: #D19B07">
+					<span class="ion ion-person"></span> &nbsp; &nbsp; &nbsp;
+					<input type="text" id="name" ng-model="data.dob" placeholder="Customer Name" required>
+				</label>
+				</br>
+				<label class="item item-input" style="border-style: solid; border-width: 0px 0px 1px 0px;  border-color: #D19B07">
+					<span class="ion ion-location"></span> &nbsp; &nbsp; &nbsp;
+					<input type="text" id="name" ng-model="data.dob" placeholder="Preferred Collection Point" required>
+				</label>
+				</br>
+				<label class="item item-input" style="border-style: solid; border-width: 0px 0px 1px 0px;  border-color: #D19B07">
+					<span class="ion ion-calendar"></span> &nbsp; &nbsp; &nbsp;
+					<input type="text" onfocus="(this.type='date')" id="date" ng-model="data.dob" placeholder="Preffered Collection Date" required>
+				</label>
+				</br>
+				<label class="item item-input" style="border-style: solid; border-width: 0px 0px 1px 0px;  border-color: #D19B07">
+					<span class="ion ion-clock"></span> &nbsp; &nbsp; &nbsp;
+					<input type="text" onfocus="(this.type='date')" id="date" ng-model="data.dob" placeholder="Preffered Collection Time" required>
+				</label>
+				</br>
+				<div style="text-align: center;">
+				<button class="button bar-pesa" ng-click="showPopup()" style=" margin-top: 1px; color: #ffffff;"><span class="ion ion-plus"></span> &nbsp; ADD CASH ENTRY</button>
+				</div>
+
+			</form>
+
+		</ion-content>
+	</ion-view>
+

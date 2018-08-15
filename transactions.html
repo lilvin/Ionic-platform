@@ -1,0 +1,28 @@
+<ion-modal-view>
+   <ion-header-bar class="bar-pesa">
+    <h1 class="title text-center" style="color:#ffffff;">{{TransactionType}}</h1>
+    <div class="buttons">
+      <button class="button" style="background-color: #004B91;" ng-click="closeviewentry()"><i class="icon ion-close-circled" style="color:#D19B07;"></i></button>
+    </div>
+  </ion-header-bar>
+  <ion-content class="">
+
+    <div class="row header" style="text-align: center;">
+      <div class="col col-40">Account Name</div>
+      <div class="col col-20">Currency</div>
+      <div class="col col-20">Amount</div>
+      <div class="col col-20">Action</div>
+    </div>
+    <div class="row" ng-repeat="CashCollectionEntry in CashCollectionEntries track by $index" style=" text-align: center;">
+      <div class="col col-40">{{CashCollectionEntry.Currency.currencyCode}}</div>
+      <div class="col col-20">{{CashCollectionEntry.OutletAccount.accountName}}</div>
+      <div class="col col-20">{{CashCollectionEntry.amount | number:'2'}}</div>
+      <div class="col col-20">
+        <div class="btn-group pull-left">
+          <button class="btn btn-default btn-xs" ng-click="editCollectionEntry($index)"><i class="icon ion-edit"></i></button>
+          <button class="btn btn-default btn-xs" ng-click="removeCollectionEntry($index)"><i class="icon ion-close-circled"></i></button>
+                                                </div>
+      </div>
+    </div>
+    </ion-content>
+</ion-modal-view>

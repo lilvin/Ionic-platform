@@ -1,0 +1,56 @@
+<ion-modal-view>
+   <ion-header-bar class="bar-pesa">
+    <h1 class="title text-center" style="color:#ffffff;">Transaction Details</h1>
+    <div class="buttons">
+      <button class="button" style="background-color: #004B91;" ng-click="closecollectiontransaction()"><i class="icon ion-close-circled" style="color:#D19B07;"></i></button>
+    </div>
+  </ion-header-bar>
+  <ion-content style="color: #000;">
+		<div class="card padding" style="border-radius: 0px;">
+			<ion-list>
+				<ion-item><b>Request ID: </b>
+					<div>{{Transaction.trxId}}</div>
+				</ion-item>
+				<ion-item><b>Transaction Ref: </b>
+					<div>{{Transaction.trxRefNumber}}</div>
+				</ion-item>
+				<ion-item><b>Account Name: </b>
+					<div>{{Transaction.account.accountName}}</div>
+				</ion-item>
+				<ion-item><b>Account Number: </b>
+					<div>{{Transaction.account.accountNumber}}</div>
+				</ion-item>
+				<ion-item><b>Currency: </b>
+					<div>{{Transaction.currencyCode.currencyCode}}</div>
+				</ion-item>
+				<ion-item><b>Request Time: </b>
+					<div>{{Transaction.timeInitiated | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+				</ion-item>
+				
+				<ion-item><b>Amount: </b>
+					<div>{{Transaction.trxValue | number:'2'}}</div>
+				</ion-item>
+				<ion-item><b>Counted Cash: </b>
+					<div>{{Transaction.countedValue ? (CollectionTransaction.countedValue | number:'2') : '0.00'}}</div>
+				</ion-item>
+				<ion-item><b>Status: </b>
+					<div>{{Transaction.trxStatus}}</div>
+				</ion-item>
+				<ion-item><b>Time Completed: </b>
+					<div>{{Transaction.timeCompleted ? (CollectionTransaction.timeCompleted | date:'yyyy-MM-dd HH:mm:ss') : 'N/A'}}</div>
+				</ion-item>
+				
+			</ion-list>
+		</div>
+	</ion-content>
+	<div class="padding" style="bottom: 10px;">
+		<div class="bar bar-footer text-center row"  ng-if="Transaction.trxStatus === 'Pending'">
+			<button class="col" ng-click="amendTrxAmount(Transaction, false)" style=" background-color: #FF5733; border-width: 0px; border-radius: 3.5px;">
+				<i class="icon ion-close-round" style="color: #ffffff;">&nbsp;AMEND  TRANS.</i>
+			</button>
+		<!-- 	<button class="button col-50" g-click="cancelTrx(CollectionTransaction, false)" style=" background-color: #2ECC71;">
+				<i class="icon ion-checkmark-round" style="color: #ffffff;">&nbsp;CANCEL TRANS.</i>
+			</button> -->
+		</div>
+	</div>
+</ion-modal-view>

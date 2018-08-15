@@ -1,0 +1,42 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-pesa" style="color:#F7F7F7;">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon ion-navicon" style="color:#F7F7F7;" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    
+    <ion-content padding="false" style="top:0px !important;">
+        
+        <div style="background-color: #ffffff;">
+          <img class="profile-image" src="img/logo.png" height="" style="display: block; margin-left: 10%; margin-right: 10%; margin-bottom: 10%; margin-top: 10%; height:95px; width:200px;">
+        </div>
+       <!--  <div class="spacer" data-componentid="spacer4" style="width: 268px; height: 27px;"></div> -->
+
+
+      <ion-list style="background-color: #F7F7F7;">
+
+        <ion-item menu-close href="#/app/dashboard""><i class="ion-stats-bars"></i>&nbsp;&nbsp;My Loan</ion-item>
+
+
+        <ion-item menu-close href="#/app/empty"><i class="ion-information-circled"></i>&nbsp;&nbsp;Enquiries</ion-item>
+
+        <ion-item menu-close href="#/app/empty"><i class="ion-chatbubbles"></i>&nbsp;&nbsp;Customer Care</ion-item>
+
+
+        <ion-item menu-close href="#/app/empty"><i class="ion-person"></i>&nbsp;&nbsp;My Account</ion-item>
+
+
+        <ion-item menu-close href="#/app/empty"><i class="ion-log-out"></i>&nbsp;&nbsp;Log Out</ion-item>
+
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
