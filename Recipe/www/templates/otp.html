@@ -1,0 +1,32 @@
+<!-- Login form -->
+<ion-view style="background-color: #F0EFF0" hide-nav-bar="true">
+  <ion-header-bar class="bar-pesa">
+    <h1 class="title text-center" style="color: #FFF;">ONLINE RECIPES</h1>
+    <div class="buttons">
+      <button class="button" style="background-color: #B0ABAD" ng-click="closeOtp()"><i class="icon ion-close-circled" style="color:#460826;"></i></button>
+    </div>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="card text-center">
+      <div class="item item-text-wrap" style="color:#460826;">
+        <i class="ion-information-circled"></i><b> Enter the code sent to your mobile number</b>
+      </div>
+    </div>
+     <form name="OTPForm" style="margin-bottom: 10%;">
+      <div class="list list-inset" style="background-color: transparent;">
+
+        <label class="item item-input" style="border-style: solid; border-width: 1px 1px 3px 1px;  border-color: #4C9ADF; margin-top: 1.5%; background-color: #F0EFF0">
+          <span class="ion ion-iphone"></span> &nbsp; &nbsp; &nbsp;
+          <input type="password" id="otp" ng-model="data.otp" placeholder="Enter OTP Code" maxlength="6" required>
+        </label>
+
+      </div>
+      <button class="button bar-golden button-block button-positive" ng-click="sendOTP(otp)" style=" margin-top: 1px; color: #ffffff; border-radius: 0;"><b>PROCEED</b></button>
+    </form>
+    <div class="text-center" >
+      <button class="button  button-clear" ng-click="resendOTP()" style="color: #004B91; text-decoration: underline;"><b>
+      Resend OTP?</b>
+    </button>
+  </div>
+</ion-content>
+</ion-view>
