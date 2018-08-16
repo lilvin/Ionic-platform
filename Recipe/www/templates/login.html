@@ -1,14 +1,22 @@
-<ion-view view-title="Login" name="login-view">
+<ion-view name="login-view" style="background-color: #F0EFF0; text-align: center;" view-title="Login">
   <ion-content class="padding">
+    <form  name="LoginForm" style="margin-bottom: 20%;" novalidate="">
       <div class="list list-inset">
-          <label class="item item-input">
-              <input type="text" placeholder="Username" ng-model="data.username">
+          <label class="item item-input" style="border-style: solid; border-width: 1px 1px 3px 1px;  border-color: #4C9ADF; margin-top: 1.5%; background-color: #F0EFF0">
+          	<span class="ion ion-email" style="font-size: 23px"></span> &nbsp; &nbsp; &nbsp;
+              <input type="text" name="email" placeholder="EMAIL" ng-model="data.username" required="" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+             <span style="color:Red" ng-show="LoginForm.email.$error.required"> *Required! </span>
+              <span style="color:Red" ng-show="LoginForm.email.$dirty&&LoginForm.email.$error.pattern">Please Enter Valid Email</span>
           </label>
-          <label class="item item-input">
-              <input type="password" placeholder="Password" ng-model="data.password">
+          <label class="item item-input" style="border-style: solid; border-width: 1px 1px 3px 1px;  border-color: #4C9ADF; margin-top: 1.5%; background-color: #F0EFF0">
+          	<span class="ion ion-locked" style="font-size: 23px"></span> &nbsp; &nbsp; &nbsp;
+              <input type="password" name="password" placeholder="PASSWORD" ng-model="data.password" required="" ng-minlength="8">
+               <span style="color:Red" ng-show="LoginForm.password.$dirty&&LoginForm.password.$error.minlength">Password must be 8 characters</span>
           </label>
       </div>
-      <button class="button button-block button-calm" ng-click="login()">Login</button>
-      <button class="button button-block button-calm" ng-click="signUp()">Create an account?</button>
+    </form>
+      <button class="button button-block" style="background-color:#4C9ADF"ng-click="login(LoginForm)" ng-disabled="LoginForm.$invalid">Login</button>
+      <button class="button button-block" style="background-color:#4C9ADF" ng-click="signUp()">Create an account?</button>
+       <button class="button button-block button-clear button-positive"ng-click="">Forgot password?</button>
   </ion-content>
 </ion-view>

@@ -1,1 +1,10 @@
 /* Empty. Add your own CSS if you like */
+.red-text{
+  color:red;
+}
+input.ng-valid{
+	border-color: green;
+}
+input.ng-invalid {
+  border-color: red;
+}

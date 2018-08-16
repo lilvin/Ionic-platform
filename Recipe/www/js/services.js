@@ -17,4 +17,10 @@ angular.module('services', [])
             headers: { 'Authorization': 'Bearer '+localStorage.getItem('access_token') }
         });
     };
+      this.resendOTP = function () {
+        return $http.get(urlBase + 'otp/resend', 
+        {
+            headers: { 'Authorization': 'Bearer '+localStorage.getItem('access_token') }
+        });
+    };
     }])

@@ -11,6 +11,13 @@
     "gulp-sass": "^3.1.0"
   },
   "dependencies": {
-    "@ionic/pro": "2.0.3"
+    "@ionic/pro": "2.0.3",
+    "cordova-android": "7.0.0",
+    "cordova-plugin-googlemaps": "^2.3.11"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-googlemaps": {}
+    }
   }
 }

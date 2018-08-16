@@ -1,7 +1,7 @@
 <ion-view view-title="{{name}}">
   <ion-content>
       <div class="card">
-                <div href="#" class="item item-text-wrap" style="padding:0px">
+                <div href="#" class="item" style="padding:0px">
                   <img src="img/{{image}}" style="width:100%">
 
                   <button class="button button-light" style="position: absolute; bottom:10px; right:5px" ng-click="addToCart(item.id, item.quantity)">
@@ -17,9 +17,11 @@
                   <i class="icon ion-cash"></i>
                   <b>{{price}}</b>
                 </a>
-                <h2 style="color: #C70039">COOKING DIRECTION</h2>
-                <textarea  style="width: 100%;">{{cooking_steps}}</textarea>
-
+                <h2 style="color: #4C9ADF">COOKING DIRECTION</h2>
+                <!-- <p style="width: 100%;">{{cooking_steps}}</p> -->
+                <ion-list ng-repeat = "item in recipes">
+                  {{item}}
+                </ion-list>
                 
               </div>
 
