@@ -1,4 +1,7 @@
 <ion-view view-title="{{name}}">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
   <ion-content>
       <div class="card">
                 <div href="#" class="item" style="padding:0px">
@@ -17,7 +20,7 @@
                   <i class="icon ion-cash"></i>
                   <b>{{price}}</b>
                 </a>
-                <h2 style="color: #4C9ADF">COOKING DIRECTION</h2>
+                <h2 style="color: #D01C64">COOKING DIRECTION</h2>
                 <!-- <p style="width: 100%;">{{cooking_steps}}</p> -->
                 <ion-list ng-repeat = "item in recipes">
                   {{item}}

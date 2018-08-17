@@ -1,5 +1,10 @@
-<ion-view name="login-view" style="background-color: #F0EFF0; text-align: center;" view-title="Login">
-  <ion-content class="padding">
+<ion-view name="login-view" style="background-color: #F0EFF0; text-align: center; " view-title="Login">
+   <ion-content class="padding">
+   <div class="card text-center">
+      <div class="item item-text-wrap" style="color:#D01C64;">
+        <i class="ion-information-circled"></i><b> Enter your credentials to login</b>
+      </div>
+    </div>
     <form  name="LoginForm" style="margin-bottom: 20%;" novalidate="">
       <div class="list list-inset">
           <label class="item item-input" style="border-style: solid; border-width: 1px 1px 3px 1px;  border-color: #4C9ADF; margin-top: 1.5%; background-color: #F0EFF0">
@@ -10,13 +15,13 @@
           </label>
           <label class="item item-input" style="border-style: solid; border-width: 1px 1px 3px 1px;  border-color: #4C9ADF; margin-top: 1.5%; background-color: #F0EFF0">
           	<span class="ion ion-locked" style="font-size: 23px"></span> &nbsp; &nbsp; &nbsp;
-              <input type="password" name="password" placeholder="PASSWORD" ng-model="data.password" required="" ng-minlength="8">
+              <input type="password" name="password" placeholder="PASSWORD" ng-model="data.password" required="" ng-minlength="5">
                <span style="color:Red" ng-show="LoginForm.password.$dirty&&LoginForm.password.$error.minlength">Password must be 8 characters</span>
           </label>
       </div>
     </form>
       <button class="button button-block" style="background-color:#4C9ADF"ng-click="login(LoginForm)" ng-disabled="LoginForm.$invalid">Login</button>
       <button class="button button-block" style="background-color:#4C9ADF" ng-click="signUp()">Create an account?</button>
-       <button class="button button-block button-clear button-positive"ng-click="">Forgot password?</button>
+       <button class="button button-block button-clear"ng-click="" style="color: #D01C64; text-decoration: underline";><b>Forgot password?</b></button>
   </ion-content>
 </ion-view>

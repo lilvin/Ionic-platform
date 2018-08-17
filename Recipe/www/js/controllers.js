@@ -14,6 +14,7 @@ angular.module('controllers', [])
 })
 
 .controller('RecipesCtrl', function($scope, $state, $rootScope) {
+  $scope.input={};
   $scope.item={};
   $scope.recipes = [
   {
@@ -109,6 +110,8 @@ $scope.fullname = localStorage.getItem("fullname")
     // $rootScope.fullname=response.data.fullName;
     localStorage.setItem("fullname", response.data.fullName)
   console.log($scope.fullname)
+   localStorage.setItem('access_token', response.data.access_token)
+      console.log("access token:", response.data.access_token)
     $ionicLoading.hide();
     $state.go('otp');
   },
@@ -124,6 +127,33 @@ $scope.fullname = localStorage.getItem("fullname")
       alert(error.data.message)
     }
   })
+    $scope.changePassword = function (ChangePasswordForm) {
+    if (!ChangePasswordForm.$valid) {
+      return;
+    }
+    var formdata = new FormData();
+    formdata.append("username", $window.localStorage.getItem('username'));
+    formdata.append("currentPassword", $scope.data.currentpassword);
+    formdata.append("newPassword", $scope.data.newpassword);
+
+    $ionicLoading.show();
+    DataService.changePassword(formdata).then(function (response) {
+      console.log("password change......", response);
+      toastr.success("password changed successfully")
+      $ionicLoading.hide();
+      $scope.changepassword.hide();
+    }, function (error) {
+      console.log("error......", error.data);
+      $ionicLoading.hide();
+      if (error.data === null) {
+        toastr.error('Please check your internet connection');
+      } else if (error.status === 400) {
+        toastr.error(error.data.message);
+      } else {
+        toastr.error(error.data.message);
+      }
+    })
+  }
 }
 })
 
@@ -131,7 +161,7 @@ $scope.fullname = localStorage.getItem("fullname")
    $scope.data = {};
   $ionicSideMenuDelegate.canDragContent(false);  
   $scope.sendOTP = function () {
-  /*  $ionicLoading.show();
+    $ionicLoading.show();
     DataService.sendOTP($scope.data.otp).then(function (response) {
       console.log("OTP......", response.data.data);
       $rootScope.Details = response.data.data.userDetails;
@@ -139,30 +169,10 @@ $scope.fullname = localStorage.getItem("fullname")
       $ionicLoading.hide();
       $window.localStorage['loggedInUser'] = angular.toJson(response.data.data.userDetails);
       localStorage.setItem('permissions', angular.toJson(response.data.data.permissions))
-      $rootScope.userType = response.data.data.userDetails.userType;
+      $rootScope.userType = response.data.data.userDetails.userType.userType;
       localStorage.setItem('usertype', $rootScope.userType)
       console.log($scope.userType);
-      if($rootScope.userType === "Customer"){
-        $scope.data.otp = "";
-
-        localStorage.setItem('loggedIn', "true");
-        $rootScope.show = 1;
-        $rootScope.teller = false;
-        localStorage.setItem('teller', $rootScope.teller);
-        $rootScope.customer = true;
-        localStorage.setItem('customer', $rootScope.customer);
-
-        $ionicViewService.nextViewOptions({
-          disableAnimate: true,
-          disableBack: true
-        });
-        $state.go('app.Recipes');
-        location.reload(true);
-
-      } else {
-       localStorage.setItem('loggedIn', "false");
-       toastr.error("You are not authorized to access this application")
-     }
+       $state.go('app.Recipes');
    }, function (error) {
     console.log("Login error......", error.data);
     $ionicLoading.hide();
@@ -186,16 +196,16 @@ $scope.fullname = localStorage.getItem("fullname")
       toastr.warning('Please check your internet connection')
     } else {
       toastr.error(error.data.message)
-    }*/
-     $state.go('app.Recipes');
+    }
         
   
-  };
+  });
 
   $scope.closeOtp = function() {
     $scope.data.otp = "";
     $state.go('login')
   };
+}
 })
 
 

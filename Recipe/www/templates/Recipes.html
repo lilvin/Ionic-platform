@@ -1,24 +1,28 @@
-<ion-view view-title="Welcome {{fullname}}">
-  <ion-content>
-    <!--<ion-list>
-      <ion-item ng-repeat="Recipe  in Recipes" href="#/app/Recipes/{{Recipe .id}}">
-        {{Recipe.title}}
+<ion-view view-title="Welcome {{fullname}}" >
+   <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content class="has-header">
+    <ion-list>
+      <!-- search box item -->
+      <ion-item>
+        <label class="item item-input" style="border-style: solid;border-color: #4C9ADF; margin-top: 1.5%;border-width: 0.5px 0.5px 3px 0.5px">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" ng-model="input.filterUser" placeholder="Search">
+        </label>
       </ion-item>
-    </ion-list>-->
-  <!--   <div class = "card">
-   <div class = "item item-avatar">
-      <img src = "my-image.png">
-      <h2>Card Name</h2>
-   </div> -->
-
-    <ion-item class="item-thumbnail-left" ng-repeat="item in recipes | orderBy:'name' ">  
+      <!-- list of recipes -->
+      <ion-item class="item-thumbnail-left" ng-repeat="item in recipes | orderBy:'name' | filter: input.filterUser ">  
         <img  ng-src="img/{{item.image}}"  ng-click="showProductInfo(item)" >
         <h2  ng-click="showProductInfo(item)" >Name: {{item.name}}</h2>
         <p   ng-click="showProductInfo(item)">Price: {{item.price}}</p>
         <p   ng-click="showProductInfo(item)">Description: {{item.description}}</p>
         <p style="position:absolute;right:10px;">
-        <a  ng-click="addToCart(item)" class="button button-assertive button-clear  icon ion-android-cart"></a> 
+          <a  ng-click="addToCart(item)" class="button button-assertive button-clear  icon ion-android-cart"></a> 
         </p> 
-    </ion-item>
+      </ion-item>
+
+    </ion-list>
+
   </ion-content>
 </ion-view>

@@ -23,4 +23,11 @@ angular.module('services', [])
             headers: { 'Authorization': 'Bearer '+localStorage.getItem('access_token') }
         });
     };
+      this.changePassword = function (formdata) {
+        return $http.post(urlBase + 'users/password', formdata,
+        {
+            headers: { 'Authorization': 'Basic '+basic_auth_enc, 'Content-Type': undefined }
+        });
+    };
+    
     }])
